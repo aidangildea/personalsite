@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Policy Research on Hugo Apéro</title>
+    <link>/categories/policy-research/</link>
+    <description>Recent content in Policy Research on Hugo Apéro</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 30 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/policy-research/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>USDA Low-Cost Diet Nutrient Dashboard</title>
+      <link>/project/usda/</link>
+      <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/project/usda/</guid>
+      <description>About this Project In collaboration with researchers from Tufts University, Duke University and Penn State University, this interactive tool is part of the research project “From Scarcity to Prosperity: How Nutrition/Cost Tradeoffs Influence Consumer Choices and the Food System.” The data used in this dashboard are sourced from the 2013/2014 National Health and Nutrition Examination Survey (NHANES) and the USDA/ERS Purchase-To-Plate Price Data Tool, and represents the consumption behaviors of women between 20-50 years old in the US.</description>
+    </item>
+    
+  </channel>
+</rss>

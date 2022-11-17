@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<title>Duke Basketball R Shiny Database | Hugo Apéro</title>
+
+
+<meta property="twitter:site" content="@apreshill">
+<meta property="twitter:creator" content="@apreshill">
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="STA 323 - Statistical Computing">
+
+
+<meta property="og:site_name" content="Hugo Apéro">
+<meta property="og:title" content="Duke Basketball R Shiny Database | Hugo Apéro">
+<meta property="og:description" content="STA 323 - Statistical Computing" />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="/project/basketball-database/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="/project/basketball-database/featured-hex.png" >
+        <meta property="twitter:card" content="summary">
+        <meta name="twitter:image" content="/project/basketball-database/featured-hex.png" >
+    
+    
+  <meta itemprop="name" content="Duke Basketball R Shiny Database">
+<meta itemprop="description" content="Introduction This year, Duke witnessed a historic basketball season, with it being Coach K&rsquo;s last season and playing so well throughout the season and March Madness. Therefore, we decided to make our final project all about Duke men&rsquo;s basketball statistics. Our project scrapes Duke men&rsquo;s basketball data, about both the team and individual players, from the goduke.com website. We then created a Shiny app to present this data and allow users to look up individual player stats and access different summary statistic reports."><meta itemprop="datePublished" content="2022-04-30T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-04-30T00:00:00+00:00" />
+<meta itemprop="wordCount" content="918"><meta itemprop="image" content="/project/basketball-database/featured-hex.png">
+<meta itemprop="keywords" content="hugo-site," />
+  
+  
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.508aa34bb4fa7ebfddd6892a4ec251e1ce46ad0e0c5be6380abc84336f01b14e.css" integrity="sha256-UIqjS7T6fr/d1okqTsJR4c5GrQ4MW&#43;Y4CryEM28BsU4=" media="screen">
+  
+  
+  <script src="/panelset.min.dca42702d7daf6fd31dc352efd2bcf0e4ac8c05ccaa58d9293f6177462de5d5f.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.c8b882f4337cb868ccc60a9ddea65093af51e69fcefd484701f4911fccf76a3d.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container single">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="/" title="Home">
+      <img src="/img/blogophonic-mark-dark.png" class="dib db-l h2 w-auto" alt="Hugo Apéro">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/about/" title="About Blogophonic">About</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/project/" title="Project Portfolio">Projects</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Duke Basketball R Shiny Database</h1>
+        <h4 class="f4 mt0 mb4 lh-title measure">STA 323 - Statistical Computing</h4>
+        <p class="f6 measure lh-copy mv1">By Aidan Gildea, Jessie Bierschenk, Julia Mitchell, Naomi Rubin, and Gaurav Sirdeshmukh in <a href="/categories/data-science">Data Science</a>  <a href="/categories/r-shiny">R Shiny</a> </p>
+        <p class="f7 db mv0 ttu">April 30, 2022</p>
+
+      
+      <div class="ph0 pt5">
+        
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+      
+  <a class="btn-links mr2 ba dib" href="https://github.com/Sta323-Sp22/final_proj_squAdjusted_R2" target="_blank" rel="noopener"><i class="fab fa-github fa-lg fa-fw mr2"></i>code</a>
+
+
+      </div>
+      
+
+      </header>
+      <section class="post-body pt5 pb4">
+        
+
+
+
+<h2 id="introduction">Introduction
+  <a href="#introduction"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>This year, Duke witnessed a historic basketball season, with it being Coach K&rsquo;s last season and playing so well throughout the season and March Madness. Therefore, we decided to make our final project all about Duke men&rsquo;s basketball statistics. Our project scrapes Duke men&rsquo;s basketball data, about both the team and individual players, from the goduke.com website. We then created a Shiny app to present this data and allow users to look up individual player stats and access different summary statistic reports. The app incorporates visualizations relevant to team and individual data. Our goal is to create an app that provides the user with informative and accessible insights into team and player performance, while also being reproducible for future seasons.</p>
+
+
+
+
+<h2 id="methods--implementation">Methods / Implementation
+  <a href="#methods--implementation"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>The first half of our project is dedicated to scraping and cleaning the Duke
+Men&rsquo;s basketball data from the 2021-2022 season. We scraped this data from
+<code>https://goduke.com/sports/mens-basketball/stats</code>. For our project, we wanted to
+scrape that data on the team statistics and overall individual statistics. We
+used selector gadget and inspected the pages to determine the best way to scrape
+the data. We were able to find the xpath by inspecting the pages and hovering
+over the element we wanted to scrape. We used xpaths that returned all of the
+data in html format for the &ldquo;Team&rdquo; and &ldquo;Individual&rdquo; pages. After scraping the
+data we had to clean it.</p>
+<p>We split the team and individual statistics into two separate data frames. For
+the team statistics data frame, we had to clean the data in multiple ways. First,
+we added a variable &ldquo;type&rdquo; to indicate which category, (i.e. &ldquo;Scoring&rdquo;,
+&ldquo;Shooting&rdquo;,&ldquo;Rebounding&rdquo;, etc.) the statistic falls under. We populated this
+variable for every statistics. We also renamed poorly labelled columns
+and cleaned the output of the rows.</p>
+<p>For the individual statistics data frame, we also had to clean the data. First,
+we renamed the columns.The columns specify the statistic, unit, and the category
+the statistic falls into (&ldquo;minutes&rdquo;, &ldquo;scoring&rdquo;, and &ldquo;rebounds&rdquo;) if it is a repeated
+column name (i.e. &ldquo;AVG&rdquo;). We also fixed the rows so that the &ldquo;Player&rdquo; column
+returns the row in a better format. Lastly,the html contains &ldquo;conference&rdquo;,
+&ldquo;scoring&rdquo;, and &ldquo;average&rdquo; statistics in addition to &ldquo;overall&rdquo; but we only
+included the &ldquo;overall&rdquo; data. We filtered the data frame for the overall data
+and removed all rows that were not in that data set.</p>
+<p>Then we developed our Shiny app. First, the user can interact with a drop down menu on the side panel and choose to view team stats or choose to view individual player stats. If the user chooses to view individual player stats, they then can interact with another drop down menu and choose from the roster which player&rsquo;s stats they would like to view. Upon pressing the action button, the main panel will produce the output corresponding to the appropriate selection. In the main panel, users can toggle between two panels, one for the overall stat line (in table format) or a summary visualization (in graph format). The content of the main panel will update dynamically when switching between the two tabs; however, if changing the input for the team/individual drop down, the user must press search again. The overall stat line is a table of statistics, either about the team&rsquo;s performance or an individual player&rsquo;s performance depending on the user&rsquo;s selection in the side panel. The summary visualization tab features a unique plot for team performance and a dynamic plot for individual performance. The graph for team performance allows users to compare the team&rsquo;s per game average statistics (ie. points per game, rebounds per game). The graph for individual performance allows users to compare the players&rsquo; FG%, FT%, and 3PT%, with the player of interest&rsquo;s data points highlighted. Altogether, the app is an intuitive and east-to-use tool for users who want to explore the Duke Men&rsquo;s Basketball Team&rsquo;s performance during the 2021-2022 season.</p>
+
+
+
+
+<h2 id="discussion--conclusions">Discussion &amp; Conclusions
+  <a href="#discussion--conclusions"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>After scraping the data and creating a Shiny app, we feel that we have presented Duke men&rsquo;s basketball statistics in an informative, interactive, and user-friendly way. The app allows users to filter the data easily and look at a variety of different summary statistics. Although we are happy with the way that our app turned out, we feel that there is much we could expand upon in the future.</p>
+<p>In the future, we would be interested in expanding upon our project by scraping more data and adding more elements to our Shiny app. This could look like scraping data from previous years, scraping data about other teams, adding more visualizations to our Shiny app, and generally expanding the scope of our app.</p>
+<p>One of our main objectives was to ensure that our code is reproducible and generalizable. Every ACC school uses the same website for their athletics pages, and as such, team and individual data is formatted essentially identically. We could expand this app from just Duke basketball, to all of the ACC - and do so without having to worry about data frames being structured differently. This could open the door to many new visualizations and for comparisons between teams and our app would become more of an analytical tool than it currently is. An alternative to this would be to implement a fileInput() where the user can scrape and import data themselves. However, doing this scraping and cleaning ourselves and updating the app’s functionality to allow for team selection would benefit the user experience.</p>
+
+
+
+
+<h3 id="data-wrangling-team-statistics">Data Wrangling: Team Statistics
+  <a href="#data-wrangling-team-statistics"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>Explore our code on 
+<a href="https://github.com/Sta323-Sp22/final_proj_squAdjusted_R2" target="_blank" rel="noopener">Github</a>.</p>
+
+        
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">April 30, 2022</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">5 minute read, 918 words</dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Categories:</dt>
+    <dd class="fw5 ml0"> <a href="/categories/data-science">Data Science</a>  <a href="/categories/r-shiny">R Shiny</a> </dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="/tags/hugo-site">hugo-site</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+    <dd class="fw5 ml0"><a href="/project/amgen/">Clinical Trial Optimization Tool</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/project/nyt/">New York Times Database Tool</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/project/usda/">USDA Low-Cost Diet Nutrient Dashboard</a></dd>
+    
+  </dl>
+</details>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="/project/amgen/">&larr; Clinical Trial Optimization Tool</a>
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="/project/nyt/">New York Times Database Tool &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+  </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2022 RStudio, Anywhere
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/aidangildea" title="github" target="_blank" rel="noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/aidangildea/" title="linkedin" target="_blank" rel="noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="/" title="email" >
+      <i class="fab fa-email fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
+      
+      <a class="dib pv1 ph2 link" href="/contact/" title="Contact form">Contact</a>
+      
+      <a class="dib pv1 ph2 link" href="/contributors/" title="Contributors">Contributors</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>

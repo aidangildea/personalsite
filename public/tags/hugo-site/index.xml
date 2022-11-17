@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo-site on Hugo Apéro</title>
+    <link>/tags/hugo-site/</link>
+    <description>Recent content in hugo-site on Hugo Apéro</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 30 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/hugo-site/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clinical Trial Optimization Tool</title>
+      <link>/project/amgen/</link>
+      <pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/project/amgen/</guid>
+      <description>About As part of a summer internship with Amgen Inc, I developed an interactive R shiny interface allowing my colleagues to optimize clinical trial roll out. While most of the data and information is protected by the company, the project is an example of how data science, visualization, and user interface design can promote the future of human health. By integrating country-level data, site-level enrollment rates, cost information, and therapeutic area specifications, the tool was able to develop an optimal geographic &amp;ldquo;footprint&amp;rdquo; for a clinical trial.</description>
+    </item>
+    
+    <item>
+      <title>Duke Basketball R Shiny Database</title>
+      <link>/project/basketball-database/</link>
+      <pubDate>Sat, 30 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/project/basketball-database/</guid>
+      <description>Introduction This year, Duke witnessed a historic basketball season, with it being Coach K&amp;rsquo;s last season and playing so well throughout the season and March Madness. Therefore, we decided to make our final project all about Duke men&amp;rsquo;s basketball statistics. Our project scrapes Duke men&amp;rsquo;s basketball data, about both the team and individual players, from the goduke.com website. We then created a Shiny app to present this data and allow users to look up individual player stats and access different summary statistic reports.</description>
+    </item>
+    
+    <item>
+      <title>New York Times Database Tool</title>
+      <link>/project/nyt/</link>
+      <pubDate>Fri, 22 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/project/nyt/</guid>
+      <description>About this Project As part of my course STA 323: Statistical Computing, I harnesses the New York Times API to build an interactive database of all their historical articles. Employing R Shiny, I created an interface that allows users to specify a day in history and access all articles from the NYT from that specific paper.
+You can view the project code on Github.</description>
+    </item>
+    
+    <item>
+      <title>USDA Low-Cost Diet Nutrient Dashboard</title>
+      <link>/project/usda/</link>
+      <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/project/usda/</guid>
+      <description>About this Project In collaboration with researchers from Tufts University, Duke University and Penn State University, this interactive tool is part of the research project “From Scarcity to Prosperity: How Nutrition/Cost Tradeoffs Influence Consumer Choices and the Food System.” The data used in this dashboard are sourced from the 2013/2014 National Health and Nutrition Examination Survey (NHANES) and the USDA/ERS Purchase-To-Plate Price Data Tool, and represents the consumption behaviors of women between 20-50 years old in the US.</description>
+    </item>
+    
+    <item>
+      <title>Voter Turnout Data Analysis</title>
+      <link>/project/voter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/project/voter/</guid>
+      <description>About this Project In this project, we investigated voter turnout rates over a 14-year period. We used data from IPUMS and the American Statistical Association that that were originally collected from surveys conducted by the United States Census Bureau and the Bureau of Labor Statistics [1,2]. The surveys are part of a “Voting and Registration Supplement” of the Current Population Survey that occurs every two years after the November elections [3].</description>
+    </item>
+    
+  </channel>
+</rss>

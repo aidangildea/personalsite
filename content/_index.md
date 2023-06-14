@@ -4,8 +4,8 @@ action_link: /about
 action_type: text
 image_left: false
 images:
-- img/Headshot.jpg
-description: "Senior at Duke University looking for opportunities to harness data insights for the improvement of human health + well-being."
+- img/hs.jpg
+description: "Duke graduate looking for opportunities to harness data insights for the improvement of human health + well-being."
 show_action_link: true
 show_social_links: true
 text_align_left: true

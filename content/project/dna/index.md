@@ -15,7 +15,7 @@ links:
 subtitle: STA 440 - Case Studies
 tags:
 - hugo-site
-title: Classifying DNA Barcodes from the Lepidoptera Orde
+title: Classifying DNA Barcodes from the Lepidoptera Order
 ---
 
 ## About

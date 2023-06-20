@@ -20,7 +20,7 @@ title: Promoting Accessibility in Duke Data Visualization
 
 ### About
 
-In nearly all disciplines, there is an increasing push to promote accessibility. Data visualization should be no different. The goal of this honors thesis is to detail the motivations, development, and use of the duke package. By the end of “Promoting Accessibility in Duke Data Visualization,” you should be sufficiently informed on how to create colorblind-friendly visualizations with colors that conform to Duke branding guidelines. Read the full thesis [here](https://aidangildea.github.io/dukethesis/).
+In nearly all disciplines, there is an increasing push to promote accessibility. Data visualization should be no different. For my undergraduate honors thesis in statistical science, I developed a novel R package that empowers users to create colorblind-friendly visualizations with colors that conform to Duke branding guidelines. By engaging with this package, users within the Duke community and beyond can easily advance design accessibility in their ggplot2 visualizations. To learn about the motivations, development, and use of the duke package, read the full thesis, [“Promoting Accessibility in Duke Data Visualization.”](https://aidangildea.github.io/dukethesis/).
 
 If you would like a more in depth description of the [duke package](https://aidangildea.github.io/duke/), feel free to contact me at aidan.gildea@duke.edu.
 

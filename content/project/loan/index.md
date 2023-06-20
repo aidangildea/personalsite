@@ -1,5 +1,5 @@
 ---
-author: Aidan Gildea
+author: Aidan Gildea, Belle Xu, Isabella Swigart, and Rob Wilds
 categories:
 - Data Science
 - Data Analysis

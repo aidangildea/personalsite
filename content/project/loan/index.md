@@ -18,7 +18,7 @@ tags:
 title: Understanding Kiva Loan Defaults
 ---
 
-### About this Project
+## About
 
 As part of my course STA 440: Case Studies, we explored the relationship between and geographic factors and both the risk of default and time to default, as well as predicting the probability of default using Kiva loan data from 2005 to 2012. By constructing both logistic regression and parametric accelerated failure time models, we provided concrete recommendations to prospective Kiva lenders on how to identify loans with lower risk of default and longer times to default.
 

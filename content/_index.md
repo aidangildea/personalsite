@@ -5,7 +5,7 @@ action_type: text
 image_left: false
 images:
 - img/hs.jpg
-description: "Duke graduate looking for opportunities to harness data insights for the improvement of human health + well-being."
+description: "Duke graduate passionate about harnessing data insights for the improvement of human health + well-being."
 show_action_link: true
 show_social_links: true
 text_align_left: true

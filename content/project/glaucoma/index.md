@@ -15,11 +15,11 @@ links:
 subtitle: STA 440 - Case Studies
 tags:
 - hugo-site
-title: Classifying DNA Barcodes from the Lepidoptera Orde
+title: Modeling the Visual Field For Young Glaucoma Patients
 ---
 
 ## About
 
-As part of the course STA 440: Case Studies, we built classification models that read DNA sequences from various Lepidoptera (butterflies) to accurately predict their families and genera, while acknowledging any measured uncertainty. This case study utilized a historical dataset of 40,000 error-free annotated DNA sequences to fit and train our models, with the ultimate goal of classifying 7,000 unannotated sequences at the family and genus levels. We ultimately achieved a high level of accuracy by constructing a multinomial regression model accounting for particular loci (formally know as kmers) in the DNA sequences. 
+As part of the course STA 440: Case Studies, we built spatio-temporal conditional auto regressive classification (CAR) models to predict early-onset glaucoma. By training these models on longitudinal visual field series of patients under 45, we were able to glean insight in the the progression and regionality of optical deterioration. Our model building process encoded visual field neighborhood dependencies via rook and queen adjacency matrices to better understand how location and adjacency impact expect visual field changes.
 
-You can view the project code on [Github](https://github.com/STA440-SP2023/case2-team12).
+You can view the project code on [Github](https://github.com/STA440-SP2023/case3-team02).
